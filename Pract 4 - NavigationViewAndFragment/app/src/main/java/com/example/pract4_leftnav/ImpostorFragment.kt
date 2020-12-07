@@ -7,18 +7,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import com.example.pract4_leftnav.databinding.FragmentImpostorBinding
+import kotlinx.android.synthetic.main.fragment_impostor.view.*
 
 class ImpostorFragment : Fragment() {
 
-    lateinit var binding : FragmentImpostorBinding
+    var displayMessage : String? = ""
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_impostor, container, false)
-        binding= DataBindingUtil.inflate(inflater,R.layout.fragment_impostor, container, false)
-        return binding.root
+        var view = inflater.inflate(R.layout.fragment_impostor, container, false)
+        displayMessage = arguments?.getString("impostor")
+
+        if (displayMessage == "impostor")
+            view.textView2.text = "Пользователь приложения was The Impostor"
+        else view.textView2.text = "Пользователь приложения was not The Impostor"
+        return view
     }
 
 }

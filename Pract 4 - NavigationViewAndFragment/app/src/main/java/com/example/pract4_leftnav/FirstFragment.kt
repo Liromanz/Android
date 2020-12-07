@@ -8,20 +8,21 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
 import com.example.pract4_leftnav.databinding.FragmentFirstBinding
+import kotlinx.android.synthetic.main.fragment_first.view.*
 
 class FirstFragment : Fragment() {
 
-    lateinit var binding : FragmentFirstBinding
+    lateinit var  communicator: Communicator
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        //return inflater.inflate(R.layout.fragment_first, container, false)
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_first,container,false)
-        binding.impostorBtn.setOnClickListener{
-            Navigation.findNavController(it).navigate(R.id.action_firstFragment2_to_impostorFragment)
+        var view = inflater.inflate(R.layout.fragment_first, container, false)
+        communicator = activity as Communicator
+
+        view.impostorBtn.setOnClickListener{
+            communicator.passDataCom(view.impostorCheck.text.toString())
         }
-        return binding.root
+        return view
     }
 }

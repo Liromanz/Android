@@ -3,6 +3,7 @@ package com.example.pract3_recycler
 import android.content.Intent
 import android.os.Bundle
 import android.os.StrictMode
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,6 +14,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import java.text.DateFormat
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,6 +47,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val sdf = SimpleDateFormat("EE")
+        Log.i("buka", sdf.format("1595296278".toLong() * 1000).toString())
+
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listOf("Россия", "Америка", "Китай", "Бразилия", "Куба", "Гонконг", "Израель", "Литва", "Филиппины", "Саудовская аравия"))
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)

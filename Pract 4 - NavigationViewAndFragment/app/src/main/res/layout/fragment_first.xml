@@ -13,20 +13,26 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Фрагмент с кнопочкой"
+            android:text="Ты кто"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <EditText
+            android:id="@+id/impostorCheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
         <Button
             android:id="@+id/impostorBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Нажать могут только импостеры"
+            android:text="Пошли на голосование"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/impostorCheck" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
